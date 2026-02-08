@@ -1,5 +1,5 @@
 {
-  "name": "github-metrics",
+  "name": "aristo-badges",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,15 +9,18 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@aristobyte-ui/card": "^2.16.2",
+    "@aristobyte-ui/label": "^2.16.2",
+    "@aristobyte-ui/utils": "^2.16.2",
     "next": "16.1.6",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "sass": "^1.80.4"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "typescript": "^5"

@@ -1,65 +1,31 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import BadgesBuilder from "./components/BadgesBuilder";
+import QuickLinks from "./components/QuickLinks";
+import SiteHeader from "./components/SiteHeader";
+import styles from "./page.module.scss";
 
 export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+        <SiteHeader
+          className={styles.siteHeader}
+          logoClassName={styles.siteLogo}
+          brandClassName={styles.brand}
+          taglineClassName={styles.tagline}
         />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
+
+        {/* <h2>Maintained by the Aristobyte UI team. Built for README badges.</h2> */}
+
+        <QuickLinks />
+
+        <BadgesBuilder />
+
+        <section className={styles.footer}>
           <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+            Add <code>GITHUB_TOKEN</code> to your Netlify env for higher rate
+            limits. All endpoints are CDN cached with stale-while-revalidate.
           </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+        </section>
       </main>
     </div>
   );
