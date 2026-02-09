@@ -10,7 +10,6 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@aristobyte-ui/card": "^2.16.5",
     "@aristobyte-ui/label": "^2.16.5",
     "@aristobyte-ui/utils": "^2.16.5",
     "next": "16.1.6",

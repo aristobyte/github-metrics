@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import * as React from "react";
 
 export type CopyState = Record<string, boolean>;
 
@@ -22,9 +22,9 @@ async function copyText(value: string) {
 }
 
 export function useCopyFeedback() {
-  const [state, setState] = useState<CopyState>({});
+  const [state, setState] = React.useState<CopyState>({});
 
-  const handleCopy = useCallback(async (key: string, value: string) => {
+  const handleCopy = React.useCallback(async (key: string, value: string) => {
     await copyText(value);
     setState((prev) => ({ ...prev, [key]: true }));
     window.setTimeout(() => {

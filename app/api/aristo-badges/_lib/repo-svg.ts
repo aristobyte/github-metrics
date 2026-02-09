@@ -34,3 +34,10 @@ export function renderRepoSvg(options: RepoSvgOptions) {
     .replace(/\{\{OPEN_ISSUES_AMOUNT\}\}/g, escapeXml(options.openIssues))
     .replace(/\{\{STARS_AMOUNT\}\}/g, escapeXml(options.stars));
 }
+
+export function renderRepoErrorSvg(message: string) {
+  return loadTemplate("./templates/repo-error.svg").replace(
+    /\{\{ERROR_DESCRIPTION\}\}/g,
+    escapeXml(message),
+  );
+}

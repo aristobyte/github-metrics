@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getNpmStats } from "../_lib/npm";
-import { renderNpmSvg } from "../_lib/npm-svg";
-import { parseAccent, parseTheme, renderErrorSvg } from "../_lib/svg";
+import { renderNpmErrorSvg, renderNpmSvg } from "../_lib/npm-svg";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -12,12 +11,10 @@ export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const namespace = searchParams.get("namespace");
   const pkg = searchParams.get("pkg");
-  const theme = parseTheme(searchParams.get("theme"));
-  const accent = parseAccent(searchParams.get("accent"));
   const width = Number.parseInt(searchParams.get("width") ?? "", 10);
 
   if (!pkg) {
-    const svg = renderErrorSvg("Missing pkg", theme, accent);
+    const svg = renderNpmErrorSvg("Missing pkg");
     return svgResponse(svg);
   }
 
@@ -28,7 +25,7 @@ export async function GET(request: NextRequest) {
     });
 
     if (!stats) {
-      const svg = renderErrorSvg("NPM package not found", theme, accent);
+      const svg = renderNpmErrorSvg("NPM package not found");
       return svgResponse(svg, 404);
     }
 
@@ -41,7 +38,8 @@ export async function GET(request: NextRequest) {
 
     return svgResponse(svg);
   } catch (error) {
-    const svg = renderErrorSvg("Failed to load NPM data", theme, accent);
+    console.error(error);
+    const svg = renderNpmErrorSvg("Failed to load NPM data");
     return svgResponse(svg, 500);
   }
 }

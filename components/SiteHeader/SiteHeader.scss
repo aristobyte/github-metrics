@@ -1,0 +1,124 @@
+@use "../../styles/variables" as *;
+
+.site-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: space-between;
+
+  &__logo {
+    width: 48px;
+    height: 48px;
+    background: $accent-soft;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    color: $accent-strong;
+  }
+
+  &__brand {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  &__tagline {
+    font-size: 13px;
+    color: $muted;
+  }
+
+  &__locale {
+    position: relative;
+    margin-left: auto;
+  }
+
+  &__locale-btn {
+    border: 1px solid $panel-border;
+    background: $panel;
+    color: $text;
+    border-radius: 12px;
+    padding: 8px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition:
+      transform 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  &__locale-btn:active {
+    transform: scale(0.97);
+    border-color: $accent;
+  }
+
+  &__locale-btn svg:last-child {
+    transition: transform 0.2s ease;
+  }
+
+  &__locale--open .site-header__locale-btn svg:last-child {
+    transform: rotate(90deg);
+  }
+
+  &__locale-menu {
+    position: absolute;
+    right: 0;
+    top: 52px;
+    width: 220px;
+    max-height: 220px;
+    overflow: auto;
+    background: $panel;
+    border: 1px solid $panel-border;
+    border-radius: 14px;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    opacity: 0;
+    transform: translateY(-6px);
+    pointer-events: none;
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+  }
+
+  &__locale--open .site-header__locale-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  &__locale-item {
+    border: 0;
+    background: transparent;
+    color: $text;
+    text-align: left;
+    padding: 8px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition:
+      background 0.2s ease,
+      color 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__locale-item em {
+    font-style: normal;
+    font-size: 11px;
+    color: $muted;
+    letter-spacing: 0.04em;
+  }
+
+  &__locale-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  &__locale-item--active {
+    background: rgba(246, 139, 70, 0.18);
+    color: $accent-strong;
+  }
+}

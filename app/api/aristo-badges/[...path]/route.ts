@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getOrgStats, getRepoStats } from "../_lib/github";
 import { getNpmStats } from "../_lib/npm";
-import { renderNpmSvg } from "../_lib/npm-svg";
-import { renderOrgSvg } from "../_lib/org-svg";
-import { renderRepoSvg } from "../_lib/repo-svg";
-import { parseAccent, parseTheme, renderErrorSvg } from "../_lib/svg";
+import { renderNpmErrorSvg, renderNpmSvg } from "../_lib/npm-svg";
+import { renderOrgErrorSvg, renderOrgSvg } from "../_lib/org-svg";
+import { renderRepoErrorSvg, renderRepoSvg } from "../_lib/repo-svg";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -20,15 +19,13 @@ export async function GET(
   context: { params: Promise<{ path: string[] }> },
 ) {
   const { searchParams } = new URL(request.url);
-  const theme = parseTheme(searchParams.get("theme"));
-  const accent = parseAccent(searchParams.get("accent"));
   const width = Number.parseInt(searchParams.get("width") ?? "", 10);
   const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || null;
 
   const params = await context.params;
   const parts = (params.path || []).map(decodeURIComponent);
   if (parts.length === 0) {
-    return svgResponse(renderErrorSvg("Missing path", theme, accent));
+    return svgResponse(renderNpmErrorSvg("Missing path"));
   }
 
   const kind = parts[0];
@@ -38,14 +35,14 @@ export async function GET(
   try {
     let result: RouteResult;
     if (kind === "repo") {
-      result = await handleRepo(rest, token, theme, accent, parsedWidth);
+      result = await handleRepo(rest, token, parsedWidth);
     } else if (kind === "org") {
-      result = await handleOrg(rest, token, theme, accent, parsedWidth);
+      result = await handleOrg(rest, token, parsedWidth);
     } else if (kind === "npm") {
-      result = await handleNpm(rest, theme, accent, parsedWidth);
+      result = await handleNpm(rest, parsedWidth);
     } else {
       result = {
-        svg: renderErrorSvg("Unknown aristo-badge type", theme, accent),
+        svg: renderNpmErrorSvg("Unknown aristo-badge type"),
         status: 404,
         cache: "public, max-age=0, s-maxage=600, stale-while-revalidate=3600",
       };
@@ -53,8 +50,9 @@ export async function GET(
 
     return svgResponse(result.svg, result.status ?? 200, result.cache);
   } catch (error) {
+    console.error(error);
     return svgResponse(
-      renderErrorSvg("Failed to render badge", theme, accent),
+      renderNpmErrorSvg("Failed to render badge"),
       500,
       "public, max-age=0, s-maxage=300, stale-while-revalidate=600",
     );
@@ -69,15 +67,13 @@ function stripSvgSegment(value: string | undefined) {
 async function handleRepo(
   rest: string[],
   token: string | null,
-  theme: "dark" | "light",
-  accent: string,
   width?: number,
 ): Promise<RouteResult> {
   const owner = rest[0];
   const repo = stripSvgSegment(rest[1]);
   if (!owner || !repo) {
     return {
-      svg: renderErrorSvg("Missing owner/repo", theme, accent),
+      svg: renderRepoErrorSvg("Missing owner/repo"),
       cache: "public, max-age=0, s-maxage=600, stale-while-revalidate=3600",
     };
   }
@@ -88,7 +84,7 @@ async function handleRepo(
   });
   if (!stats) {
     return {
-      svg: renderErrorSvg("GitHub repo not found", theme, accent),
+      svg: renderRepoErrorSvg("GitHub repo not found"),
       status: 404,
       cache: "public, max-age=0, s-maxage=600, stale-while-revalidate=3600",
     };
@@ -117,14 +113,12 @@ async function handleRepo(
 async function handleOrg(
   rest: string[],
   token: string | null,
-  theme: "dark" | "light",
-  accent: string,
   width?: number,
 ): Promise<RouteResult> {
   const org = stripSvgSegment(rest[0]);
   if (!org) {
     return {
-      svg: renderErrorSvg("Missing org", theme, accent),
+      svg: renderOrgErrorSvg("Missing org"),
       cache: "public, max-age=0, s-maxage=600, stale-while-revalidate=3600",
     };
   }
@@ -135,7 +129,7 @@ async function handleOrg(
   });
   if (!stats) {
     return {
-      svg: renderErrorSvg("GitHub org not found", theme, accent),
+      svg: renderOrgErrorSvg("GitHub org not found"),
       status: 404,
       cache: "public, max-age=0, s-maxage=600, stale-while-revalidate=3600",
     };
@@ -161,8 +155,6 @@ async function handleOrg(
 
 async function handleNpm(
   rest: string[],
-  theme: "dark" | "light",
-  accent: string,
   width?: number,
 ): Promise<RouteResult> {
   const maybeScope = rest.length > 1 ? rest[0] : null;
@@ -171,7 +163,7 @@ async function handleNpm(
 
   if (!pkg) {
     return {
-      svg: renderErrorSvg("Missing pkg", theme, accent),
+      svg: renderNpmErrorSvg("Missing pkg"),
       cache: "public, max-age=0, s-maxage=600, stale-while-revalidate=3600",
     };
   }
@@ -182,7 +174,7 @@ async function handleNpm(
   });
   if (!stats) {
     return {
-      svg: renderErrorSvg("NPM package not found", theme, accent),
+      svg: renderNpmErrorSvg("NPM package not found"),
       status: 404,
       cache: "public, max-age=0, s-maxage=600, stale-while-revalidate=3600",
     };

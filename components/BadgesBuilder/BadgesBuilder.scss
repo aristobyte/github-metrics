@@ -1,0 +1,163 @@
+@use "../../styles/variables" as *;
+
+.builder {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  &__title {
+    margin: 0 0 8px;
+    font-size: 20px;
+  }
+
+  &__description {
+    margin: 0;
+    color: $muted;
+  }
+
+  &__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: $panel;
+    border: 1px solid $panel-border;
+    display: grid;
+    place-items: center;
+    color: $accent;
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__form {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 20px;
+  }
+
+  &__fields {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 12px;
+    color: $muted;
+  }
+
+  &__label {
+    margin: 0 0 0 5px;
+  }
+
+  &__input {
+    background: $input-bg;
+    border: 1px solid $panel-border;
+    border-radius: 10px;
+    color: $text;
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  &__preview {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: $input-bg;
+    border-radius: 14px;
+    padding: 12px;
+    border: 1px solid rgba(148, 163, 184, 0.16);
+
+    &-img {
+      width: 100%;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  &__submit {
+    border: 1px solid #94a3b833;
+    border-radius: 12px;
+    padding: 10px 16px;
+    color: $text;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    max-width: 200px;
+    margin: 0 auto;
+
+    &:active {
+      transform: scale(0.96);
+    }
+
+    &--repo {
+      background: #2c74d8;
+
+      &:active {
+        background: #1b5db9;
+        border-color: #4588e6;
+      }
+    }
+
+    &--org {
+      background: #49e184;
+
+      &:active {
+        background: #3bdb78;
+        border-color: #68e197;
+      }
+    }
+
+    &--npm {
+      background: #ce5151;
+
+      &:active {
+        background: #c34141;
+        border-color: #db6363;
+      }
+    }
+  }
+
+  &__check {
+    display: inline-flex;
+    animation: pop 0.4s ease;
+  }
+}
+
+@media (max-width: 900px) {
+  .builder__cards {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 720px) {
+  .builder__header {
+    flex-direction: column;
+  }
+}

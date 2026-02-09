@@ -1,0 +1,91 @@
+export const enUs = {
+  site: {
+    name: "AristoBadges",
+    tagline: "Minimal SVG badges for README dashboards.",
+  },
+  locales: {
+    labels: {
+      "en-gb": "English (UK)",
+      "en-us": "English (US)",
+      "es-es": "Spanish",
+      "fr-fr": "French",
+      "de-de": "German",
+      "it-it": "Italian",
+      "pt-br": "Portuguese (Brazil)",
+      "ru-ru": "Russian",
+      "zh-cn": "Chinese (Simplified)",
+      "ja-jp": "Japanese",
+    },
+  },
+  links: {
+    docs: "Docs",
+    source: "Source code",
+    instagram: "Instagram",
+    linkedin: "LinkedIn",
+  },
+  projectInfo: {
+    subtitle: "Built for README badges.",
+    title: "Maintained by the",
+    ownerName: "AristoByte",
+    description:
+      "AristoBadges produces fast, cache-friendly SVG cards for repos, organizations, and NPM packages.",
+  },
+  quickLinks: {
+    title: "Generate README-ready SVG badges in seconds.",
+    badge: "Open-source tooling",
+    description:
+      "Pick a template URL, add your values, and drop the SVG into any README.",
+    labels: {
+      repo: "Repository",
+      org: "Organization",
+      npm: "NPM Package",
+    },
+  },
+  builder: {
+    title: "Generate SVG URLs",
+    description:
+      "Fill the inputs, then render and copy the URL or embed snippets.",
+    previewAlt: "Aristo-badge preview",
+    buttons: {
+      generate: "Generate",
+      copyUrl: "Copy URL",
+      copyMarkdown: "Copy Markdown",
+      copyHtml: "Copy HTML",
+    },
+    placeholders: {
+      owner: "For example: aristobyte-ui",
+      repo: "For example: aristobyte-ui",
+      org: "For example: aristobyte-ui",
+      namespace: "For example: @aristobyte-ui",
+      pkg: "For example: spinner",
+    },
+    cards: {
+      repo: {
+        title: "Repository",
+        description: "Activity, releases, and engagement for a single repo.",
+        fields: {
+          owner: "Username or Organization",
+          repo: "Repository",
+        },
+      },
+      org: {
+        title: "Organization",
+        description: "Org-wide stars, repos, forks, PRs, issues and activity.",
+        fields: {
+          org: "Organization",
+        },
+      },
+      npm: {
+        title: "NPM Package",
+        description: "Version and downloads for an NPM package.",
+        fields: {
+          namespace: "Namespace (Optional)",
+          pkg: "Package",
+        },
+      },
+    },
+  },
+  footer: {
+    note: "Add GITHUB_TOKEN to your Netlify env for higher rate limits. All endpoints are CDN cached with stale-while-revalidate.",
+  },
+};

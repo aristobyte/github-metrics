@@ -22,10 +22,11 @@ export function loadTemplate(relativePath: string) {
     templateCache.set(key, content);
     return content;
   } catch (error) {
+    console.error(error);
     const fallbackPath = path.join(
       process.cwd(),
       "public",
-      relativePath.replace("./", "")
+      relativePath.replace("./", ""),
     );
     const fallback = fs.readFileSync(fallbackPath, "utf8");
     templateCache.set(key, fallback);
@@ -36,7 +37,7 @@ export function loadTemplate(relativePath: string) {
 export function getScaledDimensions(
   baseWidth: number,
   baseHeight: number,
-  width?: number
+  width?: number,
 ) {
   const resolvedWidth = width && width > 0 ? width : baseWidth;
   const height = (resolvedWidth * baseHeight) / baseWidth;

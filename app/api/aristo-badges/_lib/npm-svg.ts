@@ -24,3 +24,10 @@ export function renderNpmSvg(options: NpmSvgOptions) {
     .replace(/\{\{VERSION\}\}/g, escapeXml(options.version))
     .replace(/\{\{DOWNLOADS\}\}/g, escapeXml(options.downloads));
 }
+
+export function renderNpmErrorSvg(message: string) {
+  return loadTemplate("./templates/npm-error.svg").replace(
+    /\{\{ERROR_DESCRIPTION\}\}/g,
+    escapeXml(message),
+  );
+}

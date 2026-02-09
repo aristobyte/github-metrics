@@ -1,0 +1,29 @@
+@use "../../styles/variables" as *;
+
+.home {
+  min-height: 100vh;
+  background: radial-gradient(
+    circle at top,
+    #1a2233 0%,
+    #0c101a 45%,
+    #0b0f17 100%
+  );
+  color: $text;
+  display: flex;
+  justify-content: center;
+
+  &__main {
+    width: 100%;
+    max-width: 1120px;
+    padding: 40px 24px 96px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 720px) {
+  .home__main {
+    padding: 28px 16px 64px;
+  }
+}

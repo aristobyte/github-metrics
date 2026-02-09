@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.scss";
+import { TranslationProvider } from "../hooks/useTranslation";
+import { ConfigProvider } from "../hooks/useConfig";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://badges.aristobyte.com"),
@@ -80,7 +82,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ConfigProvider>
+          <TranslationProvider>{children}</TranslationProvider>
+        </ConfigProvider>
+      </body>
     </html>
   );
 }

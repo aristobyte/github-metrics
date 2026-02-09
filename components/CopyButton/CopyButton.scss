@@ -1,0 +1,55 @@
+@use "../../styles/variables" as *;
+
+.copy-button {
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  background: transparent;
+  color: $text;
+
+  &--icon {
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    padding: 0;
+    background: $panel;
+  }
+
+  &:active {
+    transform: scale(0.96);
+    border-color: $accent;
+  }
+
+  &--active .copy-button__check {
+    color: $accent-strong;
+  }
+
+  &__check {
+    display: inline-flex;
+    animation: pop 0.4s ease;
+  }
+
+  &__label {
+    font-weight: 600;
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.9);
+  }
+  60% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

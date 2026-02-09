@@ -1,3 +1,13 @@
+@use "../styles/variables" as *;
+@use "../components/HomePage/HomePage.scss" as *;
+@use "../components/SiteHeader/SiteHeader.scss" as *;
+@use "../components/ProjectInfo/ProjectInfo.scss" as *;
+@use "../components/QuickLinks/QuickLinks.scss" as *;
+@use "../components/BadgesBuilder/BadgesBuilder.scss" as *;
+@use "../components/Accordion/Accordion.scss" as *;
+@use "../components/CopyButton/CopyButton.scss" as *;
+@use "../components/FooterNote/FooterNote.scss" as *;
+
 :root {
   color-scheme: dark;
 }
@@ -11,9 +21,10 @@ body {
 body {
   margin: 0;
   font-family: "DM Sans", system-ui, sans-serif;
-  background: #0c101a;
+  background: $bg;
 }
 
+h1,
 h2,
 h3,
 p {
@@ -32,4 +43,8 @@ a {
 
 p {
   font-size: 14px;
+}
+
+code {
+  font-family: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
 }

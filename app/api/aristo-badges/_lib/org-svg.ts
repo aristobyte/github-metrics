@@ -34,3 +34,10 @@ export function renderOrgSvg(options: OrgSvgOptions) {
     .replace(/\{\{ORGANISATION_STARS_AMOUNT\}\}/g, escapeXml(options.orgStars))
     .replace(/\{\{TOP_REPO_NAME\}\}/g, escapeXml(options.topRepoName));
 }
+
+export function renderOrgErrorSvg(message: string) {
+  return loadTemplate("./templates/org-error.svg").replace(
+    /\{\{ERROR_DESCRIPTION\}\}/g,
+    escapeXml(message),
+  );
+}

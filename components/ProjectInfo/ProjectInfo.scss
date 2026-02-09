@@ -1,0 +1,91 @@
+@use "../../styles/variables" as *;
+
+.project-info {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+
+  &__logo {
+    align-items: center;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    height: 100px;
+    width: 100px;
+  }
+
+  &__subtitle {
+    color: $muted;
+    font-size: 13px;
+  }
+
+  &__title {
+    color: $text;
+    margin: 0;
+    font-size: 22px;
+
+    a {
+      color: $accent-strong;
+      text-decoration: underline;
+    }
+  }
+
+  &__description {
+    margin: 0;
+    color: $muted;
+    max-width: 720px;
+  }
+
+  &__links {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    list-style-type: none;
+    margin: 8px auto 18px;
+    padding: 0;
+  }
+
+  &__link {
+    border: 1px solid $link-border;
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    background: $link-bg;
+    transition: all 200ms ease;
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: $accent;
+      opacity: 0;
+      transition: opacity 200ms ease;
+    }
+
+    span {
+      position: relative;
+      z-index: 1;
+    }
+
+    &:hover {
+      border-color: $link-hover;
+      transform: translateY(-2px);
+    }
+
+    &:hover::after {
+      opacity: 0.12;
+    }
+  }
+}

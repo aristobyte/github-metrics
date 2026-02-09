@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getOrgStats } from "../_lib/github";
-import { renderOrgSvg } from "../_lib/org-svg";
-import { parseAccent, parseTheme, renderErrorSvg } from "../_lib/svg";
+import { renderOrgErrorSvg, renderOrgSvg } from "../_lib/org-svg";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -11,12 +10,10 @@ const REVALIDATE_SECONDS = 60 * 60;
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const org = searchParams.get("org");
-  const theme = parseTheme(searchParams.get("theme"));
-  const accent = parseAccent(searchParams.get("accent"));
   const width = Number.parseInt(searchParams.get("width") ?? "", 10);
 
   if (!org) {
-    const svg = renderErrorSvg("Missing org", theme, accent);
+    const svg = renderOrgErrorSvg("Missing org");
     return svgResponse(svg);
   }
 
@@ -28,7 +25,7 @@ export async function GET(request: NextRequest) {
     });
 
     if (!stats) {
-      const svg = renderErrorSvg("GitHub org not found", theme, accent);
+      const svg = renderOrgErrorSvg("GitHub org not found");
       return svgResponse(svg, 404);
     }
 
@@ -48,7 +45,8 @@ export async function GET(request: NextRequest) {
 
     return svgResponse(svg);
   } catch (error) {
-    const svg = renderErrorSvg("Failed to load GitHub data", theme, accent);
+    console.error(error);
+    const svg = renderOrgErrorSvg("Failed to load GitHub data");
     return svgResponse(svg, 500);
   }
 }
@@ -58,7 +56,8 @@ function svgResponse(svg: string, status = 200) {
     status,
     headers: {
       "Content-Type": "image/svg+xml; charset=utf-8",
-      "Cache-Control": "public, max-age=0, s-maxage=3600, stale-while-revalidate=172800",
+      "Cache-Control":
+        "public, max-age=0, s-maxage=3600, stale-while-revalidate=172800",
     },
   });
 }
