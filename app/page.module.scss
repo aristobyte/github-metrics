@@ -102,12 +102,58 @@
   color: var(--accent);
 }
 
+.linksSection {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  p {
+    text-align: center;
+    color: var(--muted);
+  }
+  h2 {
+    text-align: center;
+    color: var(--text);
+
+    a {
+      color: var(--accent-strong);
+      text-decoration: underline;
+    }
+  }
+}
+
+.linksSectionLogos {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+}
+
+.linksSectionLogo {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  height: 100px;
+  width: 100px;
+}
+
+.linksSectionLogoPlus {
+  color: var(--muted);
+  font-size: 48px;
+}
+
 .links {
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
+  list-style-type: none;
   margin: 8px auto 18px;
+  padding: 0;
 }
 
 .link {

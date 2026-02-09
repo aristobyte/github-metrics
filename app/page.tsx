@@ -1,3 +1,4 @@
+import { Icons } from "@aristobyte-ui/utils";
 import BadgesBuilder from "./components/BadgesBuilder";
 import QuickLinks from "./components/QuickLinks";
 import SiteHeader from "./components/SiteHeader";
@@ -27,6 +28,43 @@ const CdnIcon = ({ name, size = 20, className, title }: CdnIconProps) => {
   );
 };
 
+const links = [
+  {
+    id: "example",
+    text: "See in action",
+    href: "https://github.com/aristobyte/www.aristobyte.com/blob/master/README.md",
+    icon: "mdi:terminal-line",
+  },
+
+  {
+    id: "github",
+    text: "Source code",
+    href: "https://github.com/aristobyte/aristo-badges",
+    icon: "simple-icons:github",
+  },
+
+  {
+    id: "instagram",
+    text: "Instagram",
+    href: "http://instagram.com/aristo_byte",
+    icon: "simple-icons:instagram",
+  },
+
+  {
+    id: "linkedin",
+    text: "LinkedIn",
+    href: "https://www.linkedin.com/company/aristobyte",
+    icon: "simple-icons:linkedin",
+  },
+
+  {
+    id: "facebook",
+    text: "Facebook",
+    href: "https://www.facebook.com/aristobyte/",
+    icon: "simple-icons:facebook",
+  },
+];
+
 export default function Home() {
   return (
     <div className={styles.page}>
@@ -38,54 +76,41 @@ export default function Home() {
           taglineClassName={styles.tagline}
         />
 
-        {/* <h2>Maintained by the Aristobyte UI team. Built for README badges.</h2> */}
-
-        <section className={styles["links"]}>
-          <a
-            className={styles["link"]}
-            href="https://github.com/aristobyte/www.aristobyte.com/blob/master/README.md"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <CdnIcon name="mdi:terminal-line" size={16} />
-            <span>See in action</span>
-          </a>
-          <a
-            className={styles["link"]}
-            href="https://github.com/aristobyte/aristo-badges"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <CdnIcon name="mdi:github" size={16} />
-            <span>Source code</span>
-          </a>
-          <a
-            className={styles["link"]}
-            href="http://instagram.com/aristo_byte"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <CdnIcon name="simple-icons:instagram" size={16} />
-            <span>Instagram</span>
-          </a>
-          <a
-            className={styles["link"]}
-            href="https://www.linkedin.com/company/aristobyte"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <CdnIcon name="simple-icons:linkedin" size={16} />
-            <span>LinkedIn</span>
-          </a>
-          <a
-            className={styles["link"]}
-            href="https://www.facebook.com/aristobyte/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <CdnIcon name="simple-icons:facebook" size={16} />
-            <span>Facebook</span>
-          </a>
+        <section className={styles["linksSection"]}>
+          <div className={styles["linksSectionLogos"]}>
+            <span className={styles["linksSectionLogo"]}>
+              <Icons.AristoBadges size={104} />
+            </span>
+            <span className={styles["linksSectionLogoPlus"]}> +</span>
+            <span className={styles["linksSectionLogo"]}>
+              <Icons.AristoByte size={80} />
+            </span>
+          </div>
+          <p>Built for README badges.</p>
+          <h2>
+            Maintained by the{" "}
+            <span>
+              <a href="https://aristobyte.com" target="_blank" rel="noreferrer">
+                AristoByte
+              </a>
+            </span>{" "}
+            Team.
+          </h2>
+          <ul className={styles["links"]}>
+            {links.map(({ id, text, href, icon }) => (
+              <li key={id}>
+                <a
+                  className={styles["link"]}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <CdnIcon name={icon} size={16} />
+                  <span>{text}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </section>
 
         <QuickLinks />
