@@ -47,6 +47,7 @@ export const ptBr = {
     description:
       "Preencha os campos, renderize e copie a URL ou os trechos de incorporação.",
     previewAlt: "Prévia do badge Aristo",
+    previewEmpty: "A prévia aparecerá aqui",
     buttons: {
       generate: "Gerar",
       copyUrl: "Copiar URL",

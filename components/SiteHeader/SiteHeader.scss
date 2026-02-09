@@ -5,10 +5,19 @@
   align-items: center;
   gap: 16px;
   justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+
+  &__container {
+    display: flex;
+    gap: 16px;
+  }
 
   &__logo {
-    width: 48px;
-    height: 48px;
+    max-width: 48px;
+    max-height: 48px;
+    min-width: 48px;
+    min-height: 48px;
     background: $accent-soft;
     border-radius: 14px;
     display: grid;
@@ -30,6 +39,7 @@
   &__locale {
     position: relative;
     margin-left: auto;
+    align-self: flex-end;
   }
 
   &__locale-btn {
@@ -120,5 +130,16 @@
   &__locale-item--active {
     background: rgba(246, 139, 70, 0.18);
     color: $accent-strong;
+  }
+}
+
+@media (min-width: $bp-sm) {
+  .site-header {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .site-header__locale {
+    align-self: auto;
   }
 }

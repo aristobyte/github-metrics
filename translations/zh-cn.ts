@@ -45,6 +45,7 @@ export const zhCn = {
     title: "生成 SVG URL",
     description: "填写字段，然后渲染并复制 URL 或嵌入代码。",
     previewAlt: "Aristo 徽章预览",
+    previewEmpty: "预览将显示在这里",
     buttons: {
       generate: "生成",
       copyUrl: "复制 URL",

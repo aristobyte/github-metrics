@@ -45,6 +45,7 @@ export const jaJp = {
     title: "SVG URLを生成",
     description: "入力してレンダリングし、URLや埋め込みをコピー。",
     previewAlt: "Aristoバッジのプレビュー",
+    previewEmpty: "プレビューはここに表示されます",
     buttons: {
       generate: "生成",
       copyUrl: "URLをコピー",

@@ -47,6 +47,7 @@ export const deDe = {
     description:
       "Fülle die Felder aus, rendere und kopiere die URL oder Einbettungs-Snippets.",
     previewAlt: "Vorschau des Aristo-Badges",
+    previewEmpty: "Die Vorschau erscheint hier",
     buttons: {
       generate: "Generieren",
       copyUrl: "URL kopieren",

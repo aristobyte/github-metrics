@@ -47,6 +47,7 @@ export const itIt = {
     description:
       "Compila i campi, poi renderizza e copia l’URL o gli snippet di integrazione.",
     previewAlt: "Anteprima del badge Aristo",
+    previewEmpty: "L’anteprima apparirà qui",
     buttons: {
       generate: "Genera",
       copyUrl: "Copia URL",

@@ -23,12 +23,14 @@ export function SiteHeader() {
 
   return (
     <header className="site-header">
-      <div className="site-header__logo">
-        <Icons.AristoByteUI size={36} />
-      </div>
-      <div className="site-header__text">
-        <p className="site-header__brand">{t("site.name")}</p>
-        <span className="site-header__tagline">{t("site.tagline")}</span>
+      <div className="site-header__container">
+        <div className="site-header__logo">
+          <Icons.AristoByteUI size={36} />
+        </div>
+        <div className="site-header__text">
+          <p className="site-header__brand">{t("site.name")}</p>
+          <span className="site-header__tagline">{t("site.tagline")}</span>
+        </div>
       </div>
       <div
         className={`site-header__locale${open ? " site-header__locale--open" : ""}`}
@@ -48,7 +50,9 @@ export function SiteHeader() {
               type="button"
               key={locale}
               className={`site-header__locale-item${
-                locale === currentLocale ? " site-header__locale-item--active" : ""
+                locale === currentLocale
+                  ? " site-header__locale-item--active"
+                  : ""
               }`}
               onClick={() => handleLocaleChange(locale)}
             >

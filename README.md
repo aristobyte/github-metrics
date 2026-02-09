@@ -85,6 +85,20 @@ https://badges.aristobyte.com/api/aristo-badges/npm?namespace=<SCOPE>&pkg=<PACKA
 
 ---
 
+## ⚙️ Optional Query Parameters
+
+| Param   | Type    | Default | Description                                        |
+| ------- | ------- | ------- | -------------------------------------------------- |
+| `cache` | boolean | `false` | When `true`, enables CDN caching for the response. |
+
+Example:
+
+```
+https://badges.aristobyte.com/api/aristo-badges/repo?owner=aristobyte-ui&repo=aristobyte-ui&cache=true
+```
+
+---
+
 ## 🚀 Getting Started
 
 ```bash

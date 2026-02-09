@@ -47,6 +47,7 @@ export const ruRu = {
     description:
       "Заполните поля, затем отрендерьте и скопируйте URL или фрагменты для вставки.",
     previewAlt: "Предпросмотр бейджа Aristo",
+    previewEmpty: "Предпросмотр появится здесь",
     buttons: {
       generate: "Сгенерировать",
       copyUrl: "Копировать URL",

@@ -47,6 +47,7 @@ export const frFr = {
     description:
       "Renseignez les champs, puis rendez et copiez l'URL ou les extraits d'intégration.",
     previewAlt: "Aperçu du badge Aristo",
+    previewEmpty: "L’aperçu s’affichera ici",
     buttons: {
       generate: "Générer",
       copyUrl: "Copier l’URL",

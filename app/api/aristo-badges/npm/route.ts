@@ -9,13 +9,14 @@ const REVALIDATE_SECONDS = 60 * 60;
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
-  const namespace = searchParams.get("namespace");
-  const pkg = searchParams.get("pkg");
+  const namespace = searchParams.get("namespace") ?? searchParams.get("scope");
+  const pkg = searchParams.get("pkg") ?? searchParams.get("package");
+  const cacheEnabled = searchParams.get("cache") === "true";
   const width = Number.parseInt(searchParams.get("width") ?? "", 10);
 
   if (!pkg) {
     const svg = renderNpmErrorSvg("Missing pkg");
-    return svgResponse(svg);
+    return svgResponse(svg, 400, cacheEnabled);
   }
 
   try {
@@ -26,7 +27,7 @@ export async function GET(request: NextRequest) {
 
     if (!stats) {
       const svg = renderNpmErrorSvg("NPM package not found");
-      return svgResponse(svg, 404);
+      return svgResponse(svg, 404, cacheEnabled);
     }
 
     const svg = renderNpmSvg({
@@ -36,21 +37,24 @@ export async function GET(request: NextRequest) {
       width: Number.isNaN(width) ? undefined : width,
     });
 
-    return svgResponse(svg);
+    return svgResponse(svg, 200, cacheEnabled);
   } catch (error) {
     console.error(error);
     const svg = renderNpmErrorSvg("Failed to load NPM data");
-    return svgResponse(svg, 500);
+    return svgResponse(svg, 500, cacheEnabled);
   }
 }
 
-function svgResponse(svg: string, status = 200) {
+function svgResponse(svg: string, status = 200, cacheEnabled = false) {
+  const cacheControl =
+    cacheEnabled
+      ? "public, max-age=0, s-maxage=3600, stale-while-revalidate=172800"
+      : "no-store";
   return new NextResponse(svg, {
     status,
     headers: {
       "Content-Type": "image/svg+xml; charset=utf-8",
-      "Cache-Control":
-        "public, max-age=0, s-maxage=3600, stale-while-revalidate=172800",
+      "Cache-Control": cacheControl,
     },
   });
 }

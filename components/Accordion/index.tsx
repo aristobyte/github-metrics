@@ -51,11 +51,8 @@ export function Accordion({
         </span>
       </button>
       <div id={`${id}-panel`} className="accordion__panel" aria-hidden={!open}>
-        <div className="accordion__body">
-          {description ? (
-            <p className="accordion__desc">{description}</p>
-          ) : null}
-          {children}
+        <div className="accordion__panel-inner">
+          <div className="accordion__body">{children}</div>
         </div>
       </div>
     </section>

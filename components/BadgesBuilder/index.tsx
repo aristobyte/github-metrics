@@ -41,6 +41,8 @@ type BadgeCardProps = {
   onGenerate: () => void;
   onCopy: (key: string, value: string) => void;
   copyState: Record<string, boolean>;
+  loading: boolean;
+  onPreviewLoaded: () => void;
   open: boolean;
   onToggle: (id: BadgeType) => void;
 };
@@ -56,6 +58,8 @@ function BadgeCard({
   onGenerate,
   onCopy,
   copyState,
+  loading,
+  onPreviewLoaded,
   open,
   onToggle,
 }: BadgeCardProps) {
@@ -74,6 +78,7 @@ function BadgeCard({
       open={open}
       onToggle={() => onToggle(id)}
     >
+      <p className="builder__form-desc">{description}</p>
       <form
         className="builder__form"
         onSubmit={(event) => {
@@ -95,11 +100,27 @@ function BadgeCard({
           ))}
         </div>
 
-        {previewUrl && (
-          <div className="builder__preview">
-            <div className="builder__preview-img">
-              <img src={previewUrl} alt={t("builder.previewAlt")} />
-            </div>
+        <div className="builder__preview">
+          <div className="builder__preview-img">
+            {previewUrl ? (
+              <img
+                src={previewUrl}
+                alt={t("builder.previewAlt")}
+                onLoad={onPreviewLoaded}
+                onError={onPreviewLoaded}
+              />
+            ) : (
+              <span className="builder__preview-empty">
+                {t("builder.previewEmpty")}
+              </span>
+            )}
+            {loading && (
+              <div className="builder__preview-spinner" aria-hidden="true">
+                <span className="builder__spinner" />
+              </div>
+            )}
+          </div>
+          {previewUrl && (
             <div className="builder__actions">
               <CopyButton
                 icon={Icons.Link}
@@ -122,8 +143,8 @@ function BadgeCard({
                 }
               />
             </div>
-          </div>
-        )}
+          )}
+        </div>
 
         <button
           className={`builder__submit builder__submit--${id}`}
@@ -131,6 +152,11 @@ function BadgeCard({
         >
           <Icons.BashCursor size={16} />
           {t("builder.buttons.generate")}
+          {loading ? (
+            <span className="builder__loading">
+              <span className="builder__spinner builder__spinner--inline" />
+            </span>
+          ) : null}
           {copyState[copyUrlKey] ? (
             <span className="builder__check">
               <Icons.Success size={14} />
@@ -150,6 +176,13 @@ export function BadgesBuilder() {
   const [orgUrl, setOrgUrl] = React.useState("");
   const [npmUrl, setNpmUrl] = React.useState("");
   const [openId, setOpenId] = React.useState<BadgeType>("repo");
+  const [loadingState, setLoadingState] = React.useState<
+    Record<BadgeType, boolean>
+  >({
+    repo: false,
+    org: false,
+    npm: false,
+  });
   const [repoForm, setRepoForm] = React.useState<RepoFormType>({
     owner: "",
     repo: "",
@@ -187,16 +220,33 @@ export function BadgesBuilder() {
     return npmUrl;
   };
 
+  const setLoading = (id: BadgeType, value: boolean) =>
+    setLoadingState((prev) => ({ ...prev, [id]: value }));
+
   const generatePreviewUrl = (id: BadgeType) => {
+    const nextUrl =
+      id === "repo"
+        ? buildRepoUrl(baseUrl, repoForm)
+        : id === "org"
+          ? buildOrgUrl(baseUrl, orgForm)
+          : buildNpmUrl(baseUrl, npmForm);
+
+    const currentUrl = getPreviewUrl(id);
+    if (currentUrl === nextUrl) {
+      setLoading(id, false);
+      return;
+    }
+
+    setLoading(id, true);
     if (id === "repo") {
-      setRepoUrl(buildRepoUrl(baseUrl, repoForm));
+      setRepoUrl(nextUrl);
       return;
     }
     if (id === "org") {
-      setOrgUrl(buildOrgUrl(baseUrl, orgForm));
+      setOrgUrl(nextUrl);
       return;
     }
-    setNpmUrl(buildNpmUrl(baseUrl, npmForm));
+    setNpmUrl(nextUrl);
   };
 
   React.useEffect(() => {
@@ -243,6 +293,8 @@ export function BadgesBuilder() {
               onGenerate={() => generatePreviewUrl(id)}
               onCopy={handleCopy}
               copyState={state}
+              loading={loadingState[id]}
+              onPreviewLoaded={() => setLoading(id, false)}
               open={openId === id}
               onToggle={(id) => setOpenId(id)}
             />

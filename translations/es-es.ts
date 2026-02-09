@@ -47,6 +47,7 @@ export const esEs = {
     description:
       "Completa los campos, renderiza y copia la URL o fragmentos de inserción.",
     previewAlt: "Vista previa del badge de Aristo",
+    previewEmpty: "La vista previa aparecerá aquí",
     buttons: {
       generate: "Generar",
       copyUrl: "Copiar URL",

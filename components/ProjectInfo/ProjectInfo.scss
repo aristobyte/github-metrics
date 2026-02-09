@@ -14,8 +14,8 @@
     display: flex;
     justify-content: center;
     padding: 5px;
-    height: 100px;
-    width: 100px;
+    height: 84px;
+    width: 84px;
   }
 
   &__subtitle {
@@ -87,5 +87,12 @@
     &:hover::after {
       opacity: 0.12;
     }
+  }
+}
+
+@media (min-width: $bp-sm) {
+  .project-info__logo {
+    height: 100px;
+    width: 100px;
   }
 }

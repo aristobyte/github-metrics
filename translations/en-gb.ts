@@ -47,6 +47,7 @@ export const enGb = {
     description:
       "Fill the inputs, then render and copy the URL or embed snippets.",
     previewAlt: "Aristo-badge preview",
+    previewEmpty: "Preview will appear here",
     buttons: {
       generate: "Generate",
       copyUrl: "Copy URL",
