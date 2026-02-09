@@ -18,9 +18,10 @@ export const ptBr = {
     },
   },
   links: {
-    docs: "Documentação",
+    "aristobyte-ui": "AristoByte UI",
     source: "Código-fonte",
     instagram: "Instagram",
+    website: "AristoByte",
     linkedin: "LinkedIn",
   },
   projectInfo: {

@@ -18,9 +18,10 @@ export const ruRu = {
     },
   },
   links: {
-    docs: "Документация",
+    "aristobyte-ui": "AristoByte UI",
     source: "Исходный код",
     instagram: "Instagram",
+    website: "AristoByte",
     linkedin: "LinkedIn",
   },
   projectInfo: {

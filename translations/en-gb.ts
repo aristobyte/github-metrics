@@ -18,9 +18,10 @@ export const enGb = {
     },
   },
   links: {
-    docs: "Docs",
+    "aristobyte-ui": "AristoByte UI",
     source: "Source code",
     instagram: "Instagram",
+    website: "AristoByte",
     linkedin: "LinkedIn",
   },
   projectInfo: {

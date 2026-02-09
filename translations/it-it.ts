@@ -18,9 +18,10 @@ export const itIt = {
     },
   },
   links: {
-    docs: "Documentazione",
+    "aristobyte-ui": "AristoByte UI",
     source: "Codice sorgente",
     instagram: "Instagram",
+    website: "AristoByte",
     linkedin: "LinkedIn",
   },
   projectInfo: {

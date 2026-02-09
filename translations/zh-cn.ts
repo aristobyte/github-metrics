@@ -18,16 +18,18 @@ export const zhCn = {
     },
   },
   links: {
-    docs: "文档",
+    "aristobyte-ui": "AristoByte UI",
     source: "源代码",
     instagram: "Instagram",
+    website: "AristoByte",
     linkedin: "LinkedIn",
   },
   projectInfo: {
     subtitle: "为 README 徽章打造。",
     title: "由",
     ownerName: "AristoByte",
-    description: "AristoBadges 为仓库、组织和 NPM 包生成快速可缓存的 SVG 卡片。",
+    description:
+      "AristoBadges 为仓库、组织和 NPM 包生成快速可缓存的 SVG 卡片。",
   },
   quickLinks: {
     title: "几秒内生成可用于 README 的 SVG 徽章。",

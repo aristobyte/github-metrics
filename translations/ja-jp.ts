@@ -18,9 +18,10 @@ export const jaJp = {
     },
   },
   links: {
-    docs: "ドキュメント",
+    "aristobyte-ui": "AristoByte UI",
     source: "ソースコード",
     instagram: "Instagram",
+    website: "AristoByte",
     linkedin: "LinkedIn",
   },
   projectInfo: {
@@ -33,8 +34,7 @@ export const jaJp = {
   quickLinks: {
     title: "README向けSVGバッジを数秒で生成。",
     badge: "オープンソースツール",
-    description:
-      "テンプレートURLを選び、値を入れてREADMEに貼り付けます。",
+    description: "テンプレートURLを選び、値を入れてREADMEに貼り付けます。",
     labels: {
       repo: "リポジトリ",
       org: "組織",
@@ -69,8 +69,7 @@ export const jaJp = {
       },
       org: {
         title: "組織",
-        description:
-          "組織のスター、リポジトリ、フォーク、PR、Issue、活動。",
+        description: "組織のスター、リポジトリ、フォーク、PR、Issue、活動。",
         fields: {
           org: "組織",
         },

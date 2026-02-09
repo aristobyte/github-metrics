@@ -18,9 +18,10 @@ export const frFr = {
     },
   },
   links: {
-    docs: "Docs",
+    "aristobyte-ui": "AristoByte UI",
     source: "Code source",
     instagram: "Instagram",
+    website: "AristoByte",
     linkedin: "LinkedIn",
   },
   projectInfo: {

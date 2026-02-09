@@ -1,36 +1,152 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AristoBadges
 
-## Getting Started
+AristoBadges is a minimal, cache-friendly SVG badge service for GitHub repos, orgs, and NPM packages. Built for README dashboards with fast server-side rendering and predictable URLs.
 
-First, run the development server:
+Pick a template URL, add your values, and drop the SVG into any README.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+<p align="center">
+  <img src="./docs/banner.png" alt="Commit activity" />
+</p>
+
+---
+
+<br/>
+<p align="center">
+  <img src="https://img.shields.io/github/commit-activity/m/aristobyte/aristo-badges?style=for-the-badge" alt="Commit activity" />
+  <img src="https://img.shields.io/github/last-commit/aristobyte/aristo-badges?style=for-the-badge" alt="Last commit" />
+  <img src="https://img.shields.io/github/stars/aristobyte/aristo-badges?style=for-the-badge" alt="GitHub stars" />
+  <img src="https://img.shields.io/github/issues/aristobyte/aristo-badges?style=for-the-badge" alt="Open issues" />
+  <img src="https://img.shields.io/github/issues-pr/aristobyte/aristo-badges?style=for-the-badge" alt="Open PRs" />
+  <img src="https://img.shields.io/github/license/aristobyte/aristo-badges?style=for-the-badge" alt="License" />
+  <img src="https://img.shields.io/badge/Docs-badges.aristobyte.com-0ea5e9?style=for-the-badge" alt="Docs" />
+  <img src="https://img.shields.io/badge/Node-20+-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js >=20" />
+  <img src="https://img.shields.io/badge/NPM-10+-CB3837?style=for-the-badge&logo=npm&logoColor=white" alt="NPM >=10" />
+</p>
+
+---
+
+## 🔀 Repostiroy Badge
+
+Activity, releases, and engagement for a single repo.
+
+<p align="center">
+  <img src="https://badges.aristobyte.com/api/aristo-badges/repo?owner=aristobyte-ui&repo=aristobyte-ui" alt="Repo Badge" />
+</p>
+
+### 👤 Organisation Badge
+
+Org-wide stars, repos, forks, PRs, issues and activity.
+
+<p align="center">
+  <img src="https://badges.aristobyte.com/api/aristo-badges/org?org=aristobyte-ui" alt="Org Badge" />
+</p>
+
+### 📦 NPM Package Badge
+
+Version and downloads for an NPM package.
+
+<p align="center">
+  <img src="https://badges.aristobyte.com/api/aristo-badges/npm?namespace=@aristobyte-ui&pkg=spinner" alt="NPM Badge" />
+</p>
+
+---
+
+## 🔗 Links
+
+- Documentation: https://ui.aristobyte.com
+- GitHub Org: https://github.com/aristobyte-ui
+- Repository: https://github.com/aristobyte/aristo-badges
+- Releases: https://github.com/aristobyte/aristo-badges/releases
+- NPM Org: https://www.npmjs.com/org/aristobyte-ui
+
+---
+
+## ⚡ Endpoints
+
+Repository Badge
+
+```
+https://badges.aristobyte.com/api/aristo-badges/repo?owner=<ORG_OR_USER>&repo=<REPO>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Organisation or Owner Badge
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+https://badges.aristobyte.com/api/aristo-badges/org?org=<ORG>
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+NPM Package Badge
 
-## Learn More
+```
+https://badges.aristobyte.com/api/aristo-badges/npm?namespace=<SCOPE>&pkg=<PACKAGE>
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 Getting Started
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+yarn install
+yarn dev
+```
 
-## Deploy on Vercel
+Open:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+http://localhost:3000/en-gb
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## ☁️ Netlify Deployment
+
+Build settings:
+
+- Build command: `yarn build`
+- Publish directory: `.next`
+
+Environment variables:
+
+- `GITHUB_TOKEN` (recommended)
+
+### GitHub Token
+
+Create a token ([what is `GITHUB_TOKEN`](https://docs.github.com/en/actions/concepts/security/github_token)) with access to public repos and add it as:
+
+```
+GITHUB_TOKEN=<your_token>
+```
+
+Netlify:
+
+```
+Site Settings → Environment Variables → Add Variable
+```
+
+---
+
+## 📡 Data Sources
+
+- GitHub REST API (`api.github.com`)
+- NPM Registry (`registry.npmjs.org`)
+- NPM Downloads API (`api.npmjs.org`)
+
+---
+
+## 🤝 Contributing
+
+See ➤ [`CONTRIBUTING.md`](./github/CONTRIBUTING.md).
+
+---
+
+## 🔐 Security
+
+See ➤ [`SECURITY.md`](./github/SECURITY.md).
+
+---
+
+## 📜 License
+
+[`MIT`](./LICENSE) © AristoByte

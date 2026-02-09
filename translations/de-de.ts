@@ -18,9 +18,10 @@ export const deDe = {
     },
   },
   links: {
-    docs: "Dokumentation",
+    "aristobyte-ui": "AristoByte UI",
     source: "Quellcode",
     instagram: "Instagram",
+    website: "AristoByte",
     linkedin: "LinkedIn",
   },
   projectInfo: {

@@ -163,26 +163,41 @@ export function BadgesBuilder() {
   });
   const { state, handleCopy } = useCopyFeedback();
 
-  const getValue = (id: BadgeType, field: FieldType) =>
-    ({
-      repo: repoForm[field as keyof RepoFormType],
-      org: orgForm[field as keyof OrgFormType],
-      npm: npmForm[field as keyof NpmFormType],
-    })[id] ?? "";
-  const setForm = (id: BadgeType, field: FieldType, value: string) =>
-    ({
-      repo: setRepoForm((prev) => ({ ...prev, [field]: value })),
-      org: setOrgForm((prev) => ({ ...prev, [field]: value })),
-      npm: setNpmForm((prev) => ({ ...prev, [field]: value })),
-    })[id];
-  const getPreviewUrl = (id: BadgeType) =>
-    ({ repo: repoUrl, org: orgUrl, npm: npmUrl })[id];
-  const generatePreviewUrl = (id: BadgeType) =>
-    ({
-      repo: setRepoUrl(() => buildRepoUrl(baseUrl, repoForm)),
-      org: setOrgUrl(() => buildOrgUrl(baseUrl, orgForm)),
-      npm: setNpmUrl(() => buildNpmUrl(baseUrl, npmForm)),
-    })[id];
+  const getValue = (id: BadgeType, field: FieldType) => {
+    if (id === "repo") return repoForm[field as keyof RepoFormType] ?? "";
+    if (id === "org") return orgForm[field as keyof OrgFormType] ?? "";
+    return npmForm[field as keyof NpmFormType] ?? "";
+  };
+
+  const setForm = (id: BadgeType, field: FieldType, value: string) => {
+    if (id === "repo") {
+      setRepoForm((prev) => ({ ...prev, [field]: value }));
+      return;
+    }
+    if (id === "org") {
+      setOrgForm((prev) => ({ ...prev, [field]: value }));
+      return;
+    }
+    setNpmForm((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const getPreviewUrl = (id: BadgeType) => {
+    if (id === "repo") return repoUrl;
+    if (id === "org") return orgUrl;
+    return npmUrl;
+  };
+
+  const generatePreviewUrl = (id: BadgeType) => {
+    if (id === "repo") {
+      setRepoUrl(buildRepoUrl(baseUrl, repoForm));
+      return;
+    }
+    if (id === "org") {
+      setOrgUrl(buildOrgUrl(baseUrl, orgForm));
+      return;
+    }
+    setNpmUrl(buildNpmUrl(baseUrl, npmForm));
+  };
 
   React.useEffect(() => {
     const resolved = getBaseUrl();

@@ -10,16 +10,22 @@ export const CONFIG = {
   },
   externalLinks: [
     {
-      id: "docs",
-      labelKey: "links.docs",
-      href: "https://ui.aristobyte.com",
-      icon: "OpenedBook",
-    },
-    {
       id: "github",
       labelKey: "links.source",
-      href: "https://github.com/aristobyte-ui/aristo-badges",
+      href: "https://github.com/aristobyte/aristo-badges",
       icon: "Github",
+    },
+    {
+      id: "website",
+      labelKey: "links.website",
+      href: "https://aristobyte.com",
+      icon: "Components",
+    },
+    {
+      id: "aristobyte-ui",
+      labelKey: "links.aristobyte-ui",
+      href: "https://ui.aristobyte.com",
+      icon: "Layers",
     },
     {
       id: "instagram",
