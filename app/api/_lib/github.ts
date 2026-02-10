@@ -3,36 +3,10 @@ type GithubFetchOptions = {
   revalidateSeconds?: number;
 };
 
-type GithubRepoStats = {
-  fullName: string;
-  stars: number;
-  openIssues: number;
-  openPulls: number;
-  contributors: number;
-  monthlyCommits: number;
-  lastCommitAt: string;
-  latestReleaseTag: string | null;
-  totalReleases: number;
-};
-
-type GithubOrgStats = {
-  org: string;
-  publicRepos: number;
-  totalStars: number;
-  totalForks: number;
-  publicMembers: number;
-  reposUpdated30d: number;
-  openIssues: number;
-  openPulls: number;
-  topRepoName: string | null;
-};
+import type { GithubOrgStats, GithubRepoStats } from "./types";
+import { fetchJson } from "./http";
 
 const GITHUB_API = "https://api.github.com";
-
-function getRevalidate(revalidateSeconds?: number) {
-  if (!revalidateSeconds) return undefined;
-  return { revalidate: revalidateSeconds };
-}
 
 function getPageCountFromLink(linkHeader: string | null) {
   if (!linkHeader) return null;
@@ -61,18 +35,12 @@ async function githubFetchJson<T>(
     headers.set("Authorization", `Bearer ${options.token}`);
   }
 
-  try {
-    const response = await fetch(url, {
-      headers,
-      next: getRevalidate(options.revalidateSeconds),
-    });
-
-    if (!response.ok) return null;
-    const data = (await response.json()) as T;
-    return { data, link: response.headers.get("link") };
-  } catch {
-    return null;
-  }
+  const result = await fetchJson<T>(url, {
+    headers,
+    revalidateSeconds: options.revalidateSeconds,
+  });
+  if (!result) return null;
+  return { data: result.data, link: result.response.headers.get("link") };
 }
 
 async function getOpenPulls(

@@ -1,5 +1,8 @@
-import { NextRequest, NextResponse } from "next/server";
-import { getOrgStats } from "../_lib/github";
+import { NextRequest } from "next/server";
+import { GitHubData } from "../_lib/data-sources";
+import { parseOrgRequest } from "../_lib/request";
+import { svgResponse } from "../_lib/response";
+import { mapOrgSvg } from "../_lib/svg-mappers";
 import { renderOrgErrorSvg, renderOrgSvg } from "../_lib/org-svg";
 
 export const dynamic = "force-dynamic";
@@ -8,9 +11,7 @@ export const runtime = "nodejs";
 const REVALIDATE_SECONDS = 60 * 60;
 
 export async function GET(request: NextRequest) {
-  const { searchParams } = new URL(request.url);
-  const org = searchParams.get("org") ?? searchParams.get("owner");
-  const width = Number.parseInt(searchParams.get("width") ?? "", 10);
+  const { org, width } = parseOrgRequest(request);
 
   if (!org) {
     const svg = renderOrgErrorSvg("Missing org");
@@ -19,7 +20,7 @@ export async function GET(request: NextRequest) {
 
   try {
     const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || null;
-    const stats = await getOrgStats(org, {
+    const stats = await GitHubData.org(org, {
       token,
       revalidateSeconds: REVALIDATE_SECONDS,
     });
@@ -29,19 +30,7 @@ export async function GET(request: NextRequest) {
       return svgResponse(svg, 404);
     }
 
-    const svg = renderOrgSvg({
-      org: stats.org,
-      subtitle: `github/${stats.org}`,
-      reposUpdated30d: stats.reposUpdated30d.toLocaleString(),
-      openIssues: stats.openIssues.toLocaleString(),
-      openPrs: stats.openPulls.toLocaleString(),
-      totalForks: stats.totalForks.toLocaleString(),
-      publicMembers: stats.publicMembers.toLocaleString(),
-      publicRepos: stats.publicRepos.toLocaleString(),
-      orgStars: stats.totalStars.toLocaleString(),
-      topRepoName: stats.topRepoName ?? "-",
-      width: Number.isNaN(width) ? undefined : width,
-    });
+    const svg = renderOrgSvg(mapOrgSvg(stats, width));
 
     return svgResponse(svg, 200);
   } catch (error) {
@@ -49,15 +38,4 @@ export async function GET(request: NextRequest) {
     const svg = renderOrgErrorSvg("Failed to load GitHub data");
     return svgResponse(svg, 500);
   }
-}
-
-function svgResponse(svg: string, status = 200) {
-  const cacheControl = "no-store";
-  return new NextResponse(svg, {
-    status,
-    headers: {
-      "Content-Type": "image/svg+xml; charset=utf-8",
-      "Cache-Control": cacheControl,
-    },
-  });
 }

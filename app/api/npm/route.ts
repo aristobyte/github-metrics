@@ -1,5 +1,8 @@
-import { NextRequest, NextResponse } from "next/server";
-import { getNpmStats } from "../_lib/npm";
+import { NextRequest } from "next/server";
+import { NpmData } from "../_lib/data-sources";
+import { parseNpmRequest } from "../_lib/request";
+import { svgResponse } from "../_lib/response";
+import { mapNpmSvg } from "../_lib/svg-mappers";
 import { renderNpmErrorSvg, renderNpmSvg } from "../_lib/npm-svg";
 
 export const dynamic = "force-dynamic";
@@ -8,10 +11,7 @@ export const runtime = "nodejs";
 const REVALIDATE_SECONDS = 60 * 60;
 
 export async function GET(request: NextRequest) {
-  const { searchParams } = new URL(request.url);
-  const namespace = searchParams.get("namespace") ?? searchParams.get("scope");
-  const pkg = searchParams.get("pkg") ?? searchParams.get("package");
-  const width = Number.parseInt(searchParams.get("width") ?? "", 10);
+  const { namespace, pkg, width } = parseNpmRequest(request);
 
   if (!pkg) {
     const svg = renderNpmErrorSvg("Missing pkg");
@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
 
   try {
     const name = namespace ? `${namespace}/${pkg}` : pkg;
-    const stats = await getNpmStats(name, {
+    const stats = await NpmData.package(name, {
       revalidateSeconds: REVALIDATE_SECONDS,
     });
 
@@ -29,12 +29,7 @@ export async function GET(request: NextRequest) {
       return svgResponse(svg, 404);
     }
 
-    const svg = renderNpmSvg({
-      packageName: stats.name,
-      version: stats.latestVersion,
-      downloads: stats.monthlyDownloads.toLocaleString(),
-      width: Number.isNaN(width) ? undefined : width,
-    });
+    const svg = renderNpmSvg(mapNpmSvg(stats, width));
 
     return svgResponse(svg, 200);
   } catch (error) {
@@ -42,15 +37,4 @@ export async function GET(request: NextRequest) {
     const svg = renderNpmErrorSvg("Failed to load NPM data");
     return svgResponse(svg, 500);
   }
-}
-
-function svgResponse(svg: string, status = 200) {
-  const cacheControl = "no-store";
-  return new NextResponse(svg, {
-    status,
-    headers: {
-      "Content-Type": "image/svg+xml; charset=utf-8",
-      "Cache-Control": cacheControl,
-    },
-  });
 }

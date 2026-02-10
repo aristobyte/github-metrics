@@ -2,16 +2,8 @@ type NpmFetchOptions = {
   revalidateSeconds?: number;
 };
 
-type NpmStats = {
-  name: string;
-  latestVersion: string;
-  monthlyDownloads: number;
-};
-
-function getRevalidate(revalidateSeconds?: number) {
-  if (!revalidateSeconds) return undefined;
-  return { revalidate: revalidateSeconds };
-}
+import type { NpmStats } from "./types";
+import { fetchJson } from "./http";
 
 export async function getNpmStats(
   pkgName: string,
@@ -20,24 +12,21 @@ export async function getNpmStats(
   try {
     const encoded = encodeURIComponent(pkgName);
     const registryUrl = `https://registry.npmjs.org/${encoded}`;
-    const registryResponse = await fetch(registryUrl, {
-      next: getRevalidate(options.revalidateSeconds),
-    });
-
-    if (!registryResponse.ok) return null;
-    const registryData = (await registryResponse.json()) as {
+    const registryResult = await fetchJson<{
       name?: string;
       "dist-tags"?: { latest?: string };
-    };
+    }>(registryUrl, { revalidateSeconds: options.revalidateSeconds });
+
+    if (!registryResult) return null;
+    const registryData = registryResult.data;
 
     const downloadUrl = `https://api.npmjs.org/downloads/point/last-month/${encoded}`;
-    const downloadResponse = await fetch(downloadUrl, {
-      next: getRevalidate(options.revalidateSeconds),
-    });
-    if (!downloadResponse.ok) return null;
-    const downloadData = (await downloadResponse.json()) as {
-      downloads?: number;
-    };
+    const downloadResult = await fetchJson<{ downloads?: number }>(
+      downloadUrl,
+      { revalidateSeconds: options.revalidateSeconds },
+    );
+    if (!downloadResult) return null;
+    const downloadData = downloadResult.data;
 
     return {
       name: registryData.name ?? pkgName,

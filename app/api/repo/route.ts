@@ -1,5 +1,8 @@
-import { NextRequest, NextResponse } from "next/server";
-import { getRepoStats } from "../_lib/github";
+import { NextRequest } from "next/server";
+import { GitHubData } from "../_lib/data-sources";
+import { parseRepoRequest } from "../_lib/request";
+import { svgResponse } from "../_lib/response";
+import { mapRepoSvg } from "../_lib/svg-mappers";
 import { renderRepoErrorSvg, renderRepoSvg } from "../_lib/repo-svg";
 
 export const dynamic = "force-dynamic";
@@ -8,13 +11,7 @@ export const runtime = "nodejs";
 const REVALIDATE_SECONDS = 60 * 30;
 
 export async function GET(request: NextRequest) {
-  const { searchParams } = new URL(request.url);
-  const owner =
-    searchParams.get("owner") ??
-    searchParams.get("org") ??
-    searchParams.get("user");
-  const repo = searchParams.get("repo") ?? searchParams.get("repository");
-  const width = Number.parseInt(searchParams.get("width") ?? "", 10);
+  const { owner, repo, width } = parseRepoRequest(request);
 
   if (!owner || !repo) {
     const svg = renderRepoErrorSvg("Missing owner/repo");
@@ -23,7 +20,7 @@ export async function GET(request: NextRequest) {
 
   try {
     const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || null;
-    const stats = await getRepoStats(owner, repo, {
+    const stats = await GitHubData.repo(owner, repo, {
       token,
       revalidateSeconds: REVALIDATE_SECONDS,
     });
@@ -33,21 +30,7 @@ export async function GET(request: NextRequest) {
       return svgResponse(svg, 404);
     }
 
-    const [orgName, repoName] = stats.fullName.split("/");
-
-    const svg = renderRepoSvg({
-      org: orgName ?? owner,
-      repo: repoName ?? repo,
-      monthlyCommits: stats.monthlyCommits.toLocaleString(),
-      lastCommit: stats.lastCommitAt,
-      latestRelease: stats.latestReleaseTag ?? "-",
-      totalReleases: stats.totalReleases.toLocaleString(),
-      contributors: stats.contributors.toLocaleString(),
-      openPrs: stats.openPulls.toLocaleString(),
-      openIssues: stats.openIssues.toLocaleString(),
-      stars: stats.stars.toLocaleString(),
-      width: Number.isNaN(width) ? undefined : width,
-    });
+    const svg = renderRepoSvg(mapRepoSvg(stats, owner, repo, width));
 
     return svgResponse(svg, 200);
   } catch (error) {
@@ -55,15 +38,4 @@ export async function GET(request: NextRequest) {
     const svg = renderRepoErrorSvg("Failed to load GitHub data");
     return svgResponse(svg, 500);
   }
-}
-
-function svgResponse(svg: string, status = 200) {
-  const cacheControl = "no-store";
-  return new NextResponse(svg, {
-    status,
-    headers: {
-      "Content-Type": "image/svg+xml; charset=utf-8",
-      "Cache-Control": cacheControl,
-    },
-  });
 }
