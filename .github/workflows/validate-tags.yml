@@ -1,0 +1,27 @@
+name: Validate Tags
+
+on:
+  push:
+    tags:
+      - "*"
+  workflow_dispatch:
+
+jobs:
+  validate:
+    name: Validate Tag Format
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check tag format
+        shell: bash
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          SEMVER_REGEX='^v[0-9]+\.[0-9]+\.[0-9]+(-canary(\.[0-9]+)?)?$'
+
+          echo "Validating tag: ${TAG}"
+          if [[ ! "${TAG}" =~ ${SEMVER_REGEX} ]]; then
+            echo "Invalid tag format."
+            echo "Expected: vMAJOR.MINOR.PATCH or vMAJOR.MINOR.PATCH-canary[.N]"
+            exit 1
+          fi
+
+          echo "Tag format OK."
