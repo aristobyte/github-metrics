@@ -72,7 +72,6 @@ function BadgeCard({
     <Accordion
       id={id}
       title={title}
-      description={description}
       iconName={iconName}
       iconColor={iconColor}
       open={open}

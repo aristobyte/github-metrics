@@ -1,0 +1,680 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BadgesBuilder renders the builder layout 1`] = `
+<div>
+  <section
+    class="builder"
+  >
+    <div
+      class="builder__header"
+    >
+      <div>
+        <h2
+          class="builder__title"
+        >
+          Generate SVG URLs
+        </h2>
+        <p
+          class="builder__description"
+        >
+          Fill the inputs, then render and copy the URL or embed snippets.
+        </p>
+      </div>
+      <div
+        class="builder__icon"
+      >
+        <svg
+          fill="none"
+          height="18"
+          viewBox="0 0 10 10"
+          width="18"
+        >
+          <path
+            d="M6.5 0.5H9.5V3.5"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M4 6L9.5 0.5"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M8 5.5V8.5C8 8.76522 7.89464 9.01957 7.70711 9.20711C7.51957 9.39464 7.26522 9.5 7 9.5H1.5C1.23478 9.5 0.98043 9.39464 0.792893 9.20711C0.605357 9.01957 0.5 8.76522 0.5 8.5V3C0.5 2.73478 0.605357 2.48043 0.792893 2.29289C0.98043 2.10536 1.23478 2 1.5 2H4.5"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="builder__cards"
+    >
+      <section
+        class="accordion accordion--open"
+      >
+        <button
+          aria-controls="repo-panel"
+          aria-expanded="true"
+          class="accordion__head"
+          type="button"
+        >
+          <div
+            class="accordion__title"
+          >
+            <span
+              class="accordion__icon"
+              style="color: rgb(81, 162, 255);"
+            >
+              <svg
+                fill="none"
+                height="22"
+                viewBox="0 0 28 28"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M24.4998 18.6667H19.8332C19.1888 18.6667 18.6665 19.1891 18.6665 19.8334V24.5001C18.6665 25.1444 19.1888 25.6667 19.8332 25.6667H24.4998C25.1442 25.6667 25.6665 25.1444 25.6665 24.5001V19.8334C25.6665 19.1891 25.1442 18.6667 24.4998 18.6667Z"
+                  stroke="#51a2ff"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.33333"
+                />
+                <path
+                  d="M8.16683 18.6667H3.50016C2.85583 18.6667 2.3335 19.1891 2.3335 19.8334V24.5001C2.3335 25.1444 2.85583 25.6667 3.50016 25.6667H8.16683C8.81116 25.6667 9.3335 25.1444 9.3335 24.5001V19.8334C9.3335 19.1891 8.81116 18.6667 8.16683 18.6667Z"
+                  stroke="#51a2ff"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.33333"
+                />
+                <path
+                  d="M16.3333 2.33325H11.6667C11.0223 2.33325 10.5 2.85559 10.5 3.49992V8.16658C10.5 8.81092 11.0223 9.33325 11.6667 9.33325H16.3333C16.9777 9.33325 17.5 8.81092 17.5 8.16658V3.49992C17.5 2.85559 16.9777 2.33325 16.3333 2.33325Z"
+                  stroke="#51a2ff"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.33333"
+                />
+                <path
+                  d="M5.8335 18.6667V15.1667C5.8335 14.8572 5.95641 14.5605 6.17521 14.3417C6.394 14.1229 6.69074 14 7.00016 14H21.0002C21.3096 14 21.6063 14.1229 21.8251 14.3417C22.0439 14.5605 22.1668 14.8572 22.1668 15.1667V18.6667"
+                  stroke="#51a2ff"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.33333"
+                />
+                <path
+                  d="M14 13.9999V9.33325"
+                  stroke="#51a2ff"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.33333"
+                />
+              </svg>
+            </span>
+            <h3
+              class="accordion__text"
+            >
+              Repository
+            </h3>
+          </div>
+          <span
+            class="accordion__chevron"
+          >
+            <svg
+              fill="none"
+              height="16"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="16"
+            >
+              <path
+                d="m9 18 6-6-6-6"
+              />
+            </svg>
+          </span>
+        </button>
+        <div
+          aria-hidden="false"
+          class="accordion__panel"
+          id="repo-panel"
+        >
+          <div
+            class="accordion__panel-inner"
+          >
+            <div
+              class="accordion__body"
+            >
+              <p
+                class="builder__form-desc"
+              >
+                Activity, releases, and engagement for a single repo.
+              </p>
+              <form
+                class="builder__form"
+              >
+                <div
+                  class="builder__fields"
+                >
+                  <label
+                    class="builder__field"
+                  >
+                    <span
+                      class="builder__label"
+                    >
+                      Username or Organisation
+                    </span>
+                    <input
+                      class="builder__input"
+                      placeholder="For example: aristobyte-ui"
+                      value=""
+                    />
+                  </label>
+                  <label
+                    class="builder__field"
+                  >
+                    <span
+                      class="builder__label"
+                    >
+                      Repository
+                    </span>
+                    <input
+                      class="builder__input"
+                      placeholder="For example: aristobyte-ui"
+                      value=""
+                    />
+                  </label>
+                </div>
+                <div
+                  class="builder__preview"
+                >
+                  <div
+                    class="builder__preview-img"
+                  >
+                    <span
+                      class="builder__preview-empty"
+                    >
+                      Preview will appear here
+                    </span>
+                  </div>
+                </div>
+                <button
+                  class="builder__submit builder__submit--repo"
+                  type="submit"
+                >
+                  <svg
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 16 14"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 12.8334H14.6667"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.66667"
+                    />
+                    <path
+                      d="M1.33331 11.1666L6.33331 6.16663L1.33331 1.16663"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.66667"
+                    />
+                  </svg>
+                  Generate
+                  <svg
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 15 14"
+                    width="16"
+                  >
+                    <path
+                      d="M7.12655 1.64151C7.15154 1.5077 7.22255 1.38684 7.32727 1.29987C7.43199 1.21289 7.56384 1.16528 7.69996 1.16528C7.83609 1.16528 7.96794 1.21289 8.07266 1.29987C8.17738 1.38684 8.24839 1.5077 8.27338 1.64151L8.88646 4.88368C8.93001 5.11418 9.04203 5.32621 9.2079 5.49208C9.37377 5.65795 9.58579 5.76997 9.8163 5.81351L13.0585 6.4266C13.1923 6.45159 13.3131 6.5226 13.4001 6.62732C13.4871 6.73204 13.5347 6.86388 13.5347 7.00001C13.5347 7.13614 13.4871 7.26798 13.4001 7.37271C13.3131 7.47743 13.1923 7.54844 13.0585 7.57343L9.8163 8.18651C9.58579 8.23006 9.37377 8.34207 9.2079 8.50795C9.04203 8.67382 8.93001 8.88584 8.88646 9.11635L8.27338 12.3585C8.24839 12.4923 8.17738 12.6132 8.07266 12.7002C7.96794 12.7871 7.83609 12.8347 7.69996 12.8347C7.56384 12.8347 7.43199 12.7871 7.32727 12.7002C7.22255 12.6132 7.15154 12.4923 7.12655 12.3585L6.51346 9.11635C6.46992 8.88584 6.3579 8.67382 6.19203 8.50795C6.02616 8.34207 5.81413 8.23006 5.58363 8.18651L2.34146 7.57343C2.20765 7.54844 2.08679 7.47743 1.99982 7.37271C1.91284 7.26798 1.86523 7.13614 1.86523 7.00001C1.86523 6.86388 1.91284 6.73204 1.99982 6.62732C2.08679 6.5226 2.20765 6.45159 2.34146 6.4266L5.58363 5.81351C5.81413 5.76997 6.02616 5.65795 6.19203 5.49208C6.3579 5.32621 6.46992 5.11418 6.51346 4.88368L7.12655 1.64151Z"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.16667"
+                    />
+                    <path
+                      d="M12.3667 1.16669V3.50002"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.16667"
+                    />
+                    <path
+                      d="M13.5335 2.33331H11.2002"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.16667"
+                    />
+                    <path
+                      d="M3.03337 12.8333C3.6777 12.8333 4.20003 12.311 4.20003 11.6667C4.20003 11.0223 3.6777 10.5 3.03337 10.5C2.38903 10.5 1.8667 11.0223 1.8667 11.6667C1.8667 12.311 2.38903 12.8333 3.03337 12.8333Z"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.16667"
+                    />
+                  </svg>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="accordion accordion--closed"
+      >
+        <button
+          aria-controls="org-panel"
+          aria-expanded="false"
+          class="accordion__head"
+          type="button"
+        >
+          <div
+            class="accordion__title"
+          >
+            <span
+              class="accordion__icon"
+              style="color: rgb(73, 225, 132);"
+            >
+              <svg
+                fill="none"
+                height="22"
+                viewBox="0 0 20 18"
+                width="22"
+              >
+                <path
+                  d="M13.3334 16.5V14.8333C13.3334 13.9493 12.9822 13.1014 12.357 12.4763C11.7319 11.8512 10.8841 11.5 10 11.5H5.00002C4.11597 11.5 3.26812 11.8512 2.643 12.4763C2.01788 13.1014 1.66669 13.9493 1.66669 14.8333V16.5"
+                  stroke="#49e184"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.66667"
+                />
+                <path
+                  d="M13.3333 1.60669C14.0481 1.792 14.6811 2.20941 15.133 2.79341C15.585 3.37741 15.8301 4.09493 15.8301 4.83336C15.8301 5.57178 15.585 6.28931 15.133 6.8733C14.6811 7.4573 14.0481 7.87471 13.3333 8.06002"
+                  stroke="#49e184"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.66667"
+                />
+                <path
+                  d="M18.3333 16.5001V14.8334C18.3328 14.0948 18.0869 13.3774 17.6345 12.7937C17.182 12.2099 16.5484 11.793 15.8333 11.6084"
+                  stroke="#49e184"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.66667"
+                />
+                <path
+                  d="M7.50002 8.16667C9.34097 8.16667 10.8334 6.67428 10.8334 4.83333C10.8334 2.99238 9.34097 1.5 7.50002 1.5C5.65907 1.5 4.16669 2.99238 4.16669 4.83333C4.16669 6.67428 5.65907 8.16667 7.50002 8.16667Z"
+                  stroke="#49e184"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.66667"
+                />
+              </svg>
+            </span>
+            <h3
+              class="accordion__text"
+            >
+              Organization
+            </h3>
+          </div>
+          <span
+            class="accordion__chevron"
+          >
+            <svg
+              fill="none"
+              height="16"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="16"
+            >
+              <path
+                d="m9 18 6-6-6-6"
+              />
+            </svg>
+          </span>
+        </button>
+        <div
+          aria-hidden="true"
+          class="accordion__panel"
+          id="org-panel"
+        >
+          <div
+            class="accordion__panel-inner"
+          >
+            <div
+              class="accordion__body"
+            >
+              <p
+                class="builder__form-desc"
+              >
+                Org-wide stars, repos, forks, PRs, issues and activity.
+              </p>
+              <form
+                class="builder__form"
+              >
+                <div
+                  class="builder__fields"
+                >
+                  <label
+                    class="builder__field"
+                  >
+                    <span
+                      class="builder__label"
+                    >
+                      Organisation
+                    </span>
+                    <input
+                      class="builder__input"
+                      placeholder="For example: aristobyte-ui"
+                      value=""
+                    />
+                  </label>
+                </div>
+                <div
+                  class="builder__preview"
+                >
+                  <div
+                    class="builder__preview-img"
+                  >
+                    <span
+                      class="builder__preview-empty"
+                    >
+                      Preview will appear here
+                    </span>
+                  </div>
+                </div>
+                <button
+                  class="builder__submit builder__submit--org"
+                  type="submit"
+                >
+                  <svg
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 16 14"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 12.8334H14.6667"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.66667"
+                    />
+                    <path
+                      d="M1.33331 11.1666L6.33331 6.16663L1.33331 1.16663"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.66667"
+                    />
+                  </svg>
+                  Generate
+                  <svg
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 15 14"
+                    width="16"
+                  >
+                    <path
+                      d="M7.12655 1.64151C7.15154 1.5077 7.22255 1.38684 7.32727 1.29987C7.43199 1.21289 7.56384 1.16528 7.69996 1.16528C7.83609 1.16528 7.96794 1.21289 8.07266 1.29987C8.17738 1.38684 8.24839 1.5077 8.27338 1.64151L8.88646 4.88368C8.93001 5.11418 9.04203 5.32621 9.2079 5.49208C9.37377 5.65795 9.58579 5.76997 9.8163 5.81351L13.0585 6.4266C13.1923 6.45159 13.3131 6.5226 13.4001 6.62732C13.4871 6.73204 13.5347 6.86388 13.5347 7.00001C13.5347 7.13614 13.4871 7.26798 13.4001 7.37271C13.3131 7.47743 13.1923 7.54844 13.0585 7.57343L9.8163 8.18651C9.58579 8.23006 9.37377 8.34207 9.2079 8.50795C9.04203 8.67382 8.93001 8.88584 8.88646 9.11635L8.27338 12.3585C8.24839 12.4923 8.17738 12.6132 8.07266 12.7002C7.96794 12.7871 7.83609 12.8347 7.69996 12.8347C7.56384 12.8347 7.43199 12.7871 7.32727 12.7002C7.22255 12.6132 7.15154 12.4923 7.12655 12.3585L6.51346 9.11635C6.46992 8.88584 6.3579 8.67382 6.19203 8.50795C6.02616 8.34207 5.81413 8.23006 5.58363 8.18651L2.34146 7.57343C2.20765 7.54844 2.08679 7.47743 1.99982 7.37271C1.91284 7.26798 1.86523 7.13614 1.86523 7.00001C1.86523 6.86388 1.91284 6.73204 1.99982 6.62732C2.08679 6.5226 2.20765 6.45159 2.34146 6.4266L5.58363 5.81351C5.81413 5.76997 6.02616 5.65795 6.19203 5.49208C6.3579 5.32621 6.46992 5.11418 6.51346 4.88368L7.12655 1.64151Z"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.16667"
+                    />
+                    <path
+                      d="M12.3667 1.16669V3.50002"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.16667"
+                    />
+                    <path
+                      d="M13.5335 2.33331H11.2002"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.16667"
+                    />
+                    <path
+                      d="M3.03337 12.8333C3.6777 12.8333 4.20003 12.311 4.20003 11.6667C4.20003 11.0223 3.6777 10.5 3.03337 10.5C2.38903 10.5 1.8667 11.0223 1.8667 11.6667C1.8667 12.311 2.38903 12.8333 3.03337 12.8333Z"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.16667"
+                    />
+                  </svg>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="accordion accordion--closed"
+      >
+        <button
+          aria-controls="npm-panel"
+          aria-expanded="false"
+          class="accordion__head"
+          type="button"
+        >
+          <div
+            class="accordion__title"
+          >
+            <span
+              class="accordion__icon"
+              style="color: rgb(206, 81, 81);"
+            >
+              <svg
+                fill="none"
+                height="22"
+                viewBox="0 0 14 16"
+                width="22"
+              >
+                <path
+                  d="M6.33333 14.4867C6.53603 14.6037 6.76595 14.6653 7 14.6653C7.23405 14.6653 7.46397 14.6037 7.66667 14.4867L12.3333 11.82C12.5358 11.7031 12.704 11.535 12.821 11.3325C12.938 11.1301 12.9998 10.9005 13 10.6667V5.33332C12.9998 5.0995 12.938 4.86986 12.821 4.66743C12.704 4.465 12.5358 4.29689 12.3333 4.17999L7.66667 1.51332C7.46397 1.39629 7.23405 1.33469 7 1.33469C6.76595 1.33469 6.53603 1.39629 6.33333 1.51332L1.66667 4.17999C1.46418 4.29689 1.29599 4.465 1.17897 4.66743C1.06196 4.86986 1.00024 5.0995 1 5.33332V10.6667C1.00024 10.9005 1.06196 11.1301 1.17897 11.3325C1.29599 11.535 1.46418 11.7031 1.66667 11.82L6.33333 14.4867Z"
+                  stroke="#ce5151"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.33333"
+                />
+                <path
+                  d="M7 14.6667V8"
+                  stroke="#ce5151"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.33333"
+                />
+                <path
+                  d="M1.19336 4.66666L7.00003 7.99999L12.8067 4.66666"
+                  stroke="#ce5151"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.33333"
+                />
+                <path
+                  d="M4 2.84668L10 6.28001"
+                  stroke="#ce5151"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.33333"
+                />
+              </svg>
+            </span>
+            <h3
+              class="accordion__text"
+            >
+              NPM Package
+            </h3>
+          </div>
+          <span
+            class="accordion__chevron"
+          >
+            <svg
+              fill="none"
+              height="16"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="16"
+            >
+              <path
+                d="m9 18 6-6-6-6"
+              />
+            </svg>
+          </span>
+        </button>
+        <div
+          aria-hidden="true"
+          class="accordion__panel"
+          id="npm-panel"
+        >
+          <div
+            class="accordion__panel-inner"
+          >
+            <div
+              class="accordion__body"
+            >
+              <p
+                class="builder__form-desc"
+              >
+                Version and downloads for an NPM package.
+              </p>
+              <form
+                class="builder__form"
+              >
+                <div
+                  class="builder__fields"
+                >
+                  <label
+                    class="builder__field"
+                  >
+                    <span
+                      class="builder__label"
+                    >
+                      Namespace (Optional)
+                    </span>
+                    <input
+                      class="builder__input"
+                      placeholder="For example: @aristobyte-ui"
+                      value=""
+                    />
+                  </label>
+                  <label
+                    class="builder__field"
+                  >
+                    <span
+                      class="builder__label"
+                    >
+                      Package
+                    </span>
+                    <input
+                      class="builder__input"
+                      placeholder="For example: spinner"
+                      value=""
+                    />
+                  </label>
+                </div>
+                <div
+                  class="builder__preview"
+                >
+                  <div
+                    class="builder__preview-img"
+                  >
+                    <span
+                      class="builder__preview-empty"
+                    >
+                      Preview will appear here
+                    </span>
+                  </div>
+                </div>
+                <button
+                  class="builder__submit builder__submit--npm"
+                  type="submit"
+                >
+                  <svg
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 16 14"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 12.8334H14.6667"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.66667"
+                    />
+                    <path
+                      d="M1.33331 11.1666L6.33331 6.16663L1.33331 1.16663"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.66667"
+                    />
+                  </svg>
+                  Generate
+                  <svg
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 15 14"
+                    width="16"
+                  >
+                    <path
+                      d="M7.12655 1.64151C7.15154 1.5077 7.22255 1.38684 7.32727 1.29987C7.43199 1.21289 7.56384 1.16528 7.69996 1.16528C7.83609 1.16528 7.96794 1.21289 8.07266 1.29987C8.17738 1.38684 8.24839 1.5077 8.27338 1.64151L8.88646 4.88368C8.93001 5.11418 9.04203 5.32621 9.2079 5.49208C9.37377 5.65795 9.58579 5.76997 9.8163 5.81351L13.0585 6.4266C13.1923 6.45159 13.3131 6.5226 13.4001 6.62732C13.4871 6.73204 13.5347 6.86388 13.5347 7.00001C13.5347 7.13614 13.4871 7.26798 13.4001 7.37271C13.3131 7.47743 13.1923 7.54844 13.0585 7.57343L9.8163 8.18651C9.58579 8.23006 9.37377 8.34207 9.2079 8.50795C9.04203 8.67382 8.93001 8.88584 8.88646 9.11635L8.27338 12.3585C8.24839 12.4923 8.17738 12.6132 8.07266 12.7002C7.96794 12.7871 7.83609 12.8347 7.69996 12.8347C7.56384 12.8347 7.43199 12.7871 7.32727 12.7002C7.22255 12.6132 7.15154 12.4923 7.12655 12.3585L6.51346 9.11635C6.46992 8.88584 6.3579 8.67382 6.19203 8.50795C6.02616 8.34207 5.81413 8.23006 5.58363 8.18651L2.34146 7.57343C2.20765 7.54844 2.08679 7.47743 1.99982 7.37271C1.91284 7.26798 1.86523 7.13614 1.86523 7.00001C1.86523 6.86388 1.91284 6.73204 1.99982 6.62732C2.08679 6.5226 2.20765 6.45159 2.34146 6.4266L5.58363 5.81351C5.81413 5.76997 6.02616 5.65795 6.19203 5.49208C6.3579 5.32621 6.46992 5.11418 6.51346 4.88368L7.12655 1.64151Z"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.16667"
+                    />
+                    <path
+                      d="M12.3667 1.16669V3.50002"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.16667"
+                    />
+                    <path
+                      d="M13.5335 2.33331H11.2002"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.16667"
+                    />
+                    <path
+                      d="M3.03337 12.8333C3.6777 12.8333 4.20003 12.311 4.20003 11.6667C4.20003 11.0223 3.6777 10.5 3.03337 10.5C2.38903 10.5 1.8667 11.0223 1.8667 11.6667C1.8667 12.311 2.38903 12.8333 3.03337 12.8333Z"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.16667"
+                    />
+                  </svg>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+</div>
+`;

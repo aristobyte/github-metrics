@@ -85,6 +85,11 @@ export const jaJp = {
       },
     },
   },
+  notFound: {
+    code: "404",
+    message: "このページは存在しません。URL が間違っているか移動されました。",
+    back: "戻る",
+  },
   footer: {
     note: "Netlifyの環境変数にGITHUB_TOKENを追加すると上限が増えます。全エンドポイントはCDNでstale-while-revalidateキャッシュ。",
   },

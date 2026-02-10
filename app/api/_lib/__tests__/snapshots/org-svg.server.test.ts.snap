@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`org-svg renders org error svg 1`] = `"<svg width="{{WIDTH}}" height="{{HEIGHT}}">{{ORG}} {{SUBTITLE}} {{REPO_AMOUNT}} {{OPEN_ISSUES_AMOUNT}} {{OPEN_PRS_AMOUNT}} {{TOTAL_FORKS}} {{PUBLIC_MEMBERS_MEMBERS}} {{PUBLIC_REPOS_AMOUNT}} {{ORGANISATION_STARS_AMOUNT}} {{TOP_REPO_NAME}}</svg>"`;
+
+exports[`org-svg renders org svg with replacements 1`] = `"<svg width="600.00" height="195.51">aristo Org stats 7 8 9 4 2 10 120 top</svg>"`;

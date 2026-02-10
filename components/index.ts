@@ -6,3 +6,4 @@ export { BadgesBuilder } from "./BadgesBuilder";
 export { CopyButton } from "./CopyButton";
 export { FooterNote } from "./FooterNote";
 export { Accordion } from "./Accordion";
+export { NotFoundView } from "./NotFoundView";

@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CopyButton renders action variant 1`] = `
+<div>
+  <button
+    class="copy-button"
+    type="button"
+  >
+    <svg
+      fill="none"
+      height="14"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      width="14"
+    >
+      <rect
+        height="14"
+        rx="2"
+        ry="2"
+        width="14"
+        x="8"
+        y="8"
+      />
+      <path
+        d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"
+      />
+    </svg>
+    <span
+      class="copy-button__label"
+    >
+      Copy
+    </span>
+  </button>
+</div>
+`;

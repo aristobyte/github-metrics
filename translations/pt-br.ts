@@ -88,6 +88,12 @@ export const ptBr = {
       },
     },
   },
+  notFound: {
+    code: "404",
+    message:
+      "Esta página não existe. A URL pode estar incorreta ou ter sido movida.",
+    back: "Voltar",
+  },
   footer: {
     note: "Adicione GITHUB_TOKEN no Netlify para limites maiores. Todos os endpoints são cacheados no CDN com stale-while-revalidate.",
   },

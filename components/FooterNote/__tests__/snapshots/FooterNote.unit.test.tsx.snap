@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FooterNote renders footer note 1`] = `
+<div>
+  <section
+    class="footer-note"
+  >
+    <p>
+      Add GITHUB_TOKEN to your Netlify env for higher rate limits. All endpoints are CDN cached with stale-while-revalidate.
+    </p>
+  </section>
+</div>
+`;

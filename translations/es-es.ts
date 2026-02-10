@@ -89,6 +89,12 @@ export const esEs = {
       },
     },
   },
+  notFound: {
+    code: "404",
+    message:
+      "Esta página no existe. La URL puede ser incorrecta o movida.",
+    back: "Volver",
+  },
   footer: {
     note: "Añade GITHUB_TOKEN en Netlify para mayor límite de peticiones. Todos los endpoints están en caché CDN con stale-while-revalidate.",
   },

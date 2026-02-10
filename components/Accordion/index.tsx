@@ -8,7 +8,6 @@ type IconName = keyof typeof Icons;
 type AccordionProps = {
   id: string;
   title: string;
-  description?: string;
   iconName?: IconName;
   iconColor?: string;
   open?: boolean;
@@ -19,7 +18,6 @@ type AccordionProps = {
 export function Accordion({
   id,
   title,
-  description,
   iconName,
   iconColor,
   open,

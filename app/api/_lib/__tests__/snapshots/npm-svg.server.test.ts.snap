@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`npm-svg renders npm error svg 1`] = `"<svg width="{{WIDTH}}" height="{{HEIGHT}}">{{PACKAGE}} {{VERSION}} {{DOWNLOADS}}</svg>"`;
+
+exports[`npm-svg renders npm svg with replacements 1`] = `"<svg width="400.00" height="54.21">@aristo/spinner 1.2.3 1000</svg>"`;

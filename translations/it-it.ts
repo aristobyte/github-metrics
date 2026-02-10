@@ -88,6 +88,12 @@ export const itIt = {
       },
     },
   },
+  notFound: {
+    code: "404",
+    message:
+      "Questa pagina non esiste. L'URL potrebbe essere errato o spostato.",
+    back: "Indietro",
+  },
   footer: {
     note: "Aggiungi GITHUB_TOKEN in Netlify per limiti più alti. Tutti gli endpoint sono in cache CDN con stale-while-revalidate.",
   },

@@ -1,0 +1,8 @@
+module.exports = {
+  extends: ["stylelint-config-standard-scss"],
+  rules: {
+    "selector-class-pattern": null,
+    "scss/at-import-no-partial-leading-underscore": null,
+    "scss/at-import-partial-extension": null
+  }
+};

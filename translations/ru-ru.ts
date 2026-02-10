@@ -88,6 +88,12 @@ export const ruRu = {
       },
     },
   },
+  notFound: {
+    code: "404",
+    message:
+      "Эта страница не существует. URL может быть неверным или перемещён.",
+    back: "Назад",
+  },
   footer: {
     note: "Добавьте GITHUB_TOKEN в Netlify для более высоких лимитов. Все эндпоинты кешируются CDN с stale-while-revalidate.",
   },

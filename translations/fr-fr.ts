@@ -88,6 +88,12 @@ export const frFr = {
       },
     },
   },
+  notFound: {
+    code: "404",
+    message:
+      "Cette page n'existe pas. L'URL est peut-être incorrecte ou déplacée.",
+    back: "Retour",
+  },
   footer: {
     note: "Ajoutez GITHUB_TOKEN dans Netlify pour augmenter les limites. Tous les endpoints sont mis en cache via CDN avec stale-while-revalidate.",
   },

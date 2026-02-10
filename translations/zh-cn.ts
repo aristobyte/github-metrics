@@ -85,6 +85,11 @@ export const zhCn = {
       },
     },
   },
+  notFound: {
+    code: "404",
+    message: "此页面不存在。URL 可能有误或已移动。",
+    back: "返回",
+  },
   footer: {
     note: "在 Netlify 中添加 GITHUB_TOKEN 以获得更高限额。所有端点均使用 CDN 缓存并启用 stale-while-revalidate。",
   },

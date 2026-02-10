@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`repo-svg renders repo error svg 1`] = `"<svg width="{{WIDTH}}" height="{{HEIGHT}}">{{ORG}}/{{REPO}} {{MONTHLY_COMMITS_AMOUNT}} {{LAST_COMMIT_DATE}} {{LATEST_RELEASE_VERSION}} {{TOTAL_RELEASES_AMOUNT}} {{CONTRIBUTORS_AMOUNT}} {{OPEN_PRS_AMOUNT}} {{OPEN_ISSUES_AMOUNT}} {{STARS_AMOUNT}}</svg>"`;
+
+exports[`repo-svg renders repo svg with replacements 1`] = `"<svg width="500.00" height="161.97">aristo/badges 12 2024-01-01 v1.0.0 4 3 2 1 99</svg>"`;

@@ -87,6 +87,11 @@ export const enGb = {
       },
     },
   },
+  notFound: {
+    code: "404",
+    message: "This page doesn't exist. The URL may be wrong or moved.",
+    back: "Back",
+  },
   footer: {
     note: "Add GITHUB_TOKEN to your Netlify env for higher rate limits. All endpoints are CDN cached with stale-while-revalidate.",
   },

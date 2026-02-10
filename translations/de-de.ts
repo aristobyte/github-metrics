@@ -88,6 +88,12 @@ export const deDe = {
       },
     },
   },
+  notFound: {
+    code: "404",
+    message:
+      "Diese Seite existiert nicht. Die URL ist falsch oder wurde verschoben.",
+    back: "Zurück",
+  },
   footer: {
     note: "Füge GITHUB_TOKEN in Netlify hinzu, um höhere Limits zu erhalten. Alle Endpoints sind per CDN mit stale-while-revalidate gecacht.",
   },

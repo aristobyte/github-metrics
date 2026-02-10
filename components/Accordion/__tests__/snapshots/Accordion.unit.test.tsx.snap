@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Accordion renders the accordion open 1`] = `
+<div>
+  <section
+    class="accordion accordion--open"
+  >
+    <button
+      aria-controls="repo-panel"
+      aria-expanded="true"
+      class="accordion__head"
+      type="button"
+    >
+      <div
+        class="accordion__title"
+      >
+        <h3
+          class="accordion__text"
+        >
+          Repository
+        </h3>
+      </div>
+      <span
+        class="accordion__chevron"
+      >
+        <svg
+          fill="none"
+          height="16"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="16"
+        >
+          <path
+            d="m9 18 6-6-6-6"
+          />
+        </svg>
+      </span>
+    </button>
+    <div
+      aria-hidden="false"
+      class="accordion__panel"
+      id="repo-panel"
+    >
+      <div
+        class="accordion__panel-inner"
+      >
+        <div
+          class="accordion__body"
+        >
+          <div>
+            Content
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;
